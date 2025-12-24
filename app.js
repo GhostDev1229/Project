@@ -21,13 +21,14 @@ btn.addEventListener("click", async () => {
 
 async function getQuote() {
     try {
-        let res = await fetch(url);
+        let res = await fetch(url, { mode: 'cors' });  // explicitly allow CORS
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         let data = await res.json();
 
         return [data.content, data.author];
     } catch (e) {
-        console.log("error - ", e);
-        alert("Failed to load quote 😢\nCheck console for details");
+        console.error("error - ", e);
+        qt.innerText = "Failed to load quote 😢";
+        ath.innerText = "";
     }
 }
