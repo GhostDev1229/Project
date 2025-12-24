@@ -1,4 +1,4 @@
-let url = "https://quote-garden.onrender.com/api/v3/quotes/random";
+let url = "https://api.quotable.io/random";
 
 let btn = document.getElementById("btn");
 let qt = document.getElementById("quote");
@@ -22,14 +22,12 @@ btn.addEventListener("click", async () => {
 async function getQuote() {
     try {
         let res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         let data = await res.json();
 
-        return [
-            data.data[0].quoteText,
-            data.data[0].quoteAuthor
-        ];
+        return [data.content, data.author];
     } catch (e) {
         console.log("error - ", e);
-        return null;
+        alert("Failed to load quote 😢\nCheck console for details");
     }
 }
