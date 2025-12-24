@@ -1,38 +1,21 @@
-// Use a CORS proxy to bypass GitHub Pages restrictions
-let url = "https://api.quotable.io/random";
-let proxy = "https://api.allorigins.win/get?url=" + encodeURIComponent(url);
-
 let btn = document.getElementById("btn");
 let qt = document.getElementById("quote");
 let ath = document.getElementById("author");
 
-btn.addEventListener("click", async () => {
-    qt.innerText = "Loading...";
-    ath.innerText = "";
+// Local array of quotes
+const quotes = [
+    { text: "Life is about not knowing, having to change, taking the moment and making the best of it.", author: "Gilda Radner" },
+    { text: "The best way to predict the future is to invent it.", author: "Alan Kay" },
+    { text: "Do not wait to strike till the iron is hot; but make it hot by striking.", author: "William Butler Yeats" },
+    { text: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill" },
+    { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" }
+];
 
-    let quote = await getQuote();
+btn.addEventListener("click", () => {
+    // Pick a random quote
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const quote = quotes[randomIndex];
 
-    if (!quote) {
-        qt.innerText = "Failed to load quote 😢";
-        return;
-    }
-
-    qt.innerHTML = `"${quote[0]}"`;
-    ath.innerText = "- " + (quote[1] || "Unknown");
+    qt.innerHTML = `"${quote.text}"`;
+    ath.innerText = "- " + (quote.author || "Unknown");
 });
-
-async function getQuote() {
-    try {
-        let res = await fetch(proxy);
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        let data = await res.json();
-
-        // allorigins wraps the response in "contents"
-        let content = JSON.parse(data.contents);
-        return [content.content, content.author];
-    } catch (e) {
-        console.error("error - ", e);
-        qt.innerText = "Failed to load quote 😢";
-        ath.innerText = "";
-    }
-}
