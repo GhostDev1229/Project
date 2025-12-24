@@ -1,4 +1,5 @@
-body {
+/* GLOBAL RESET (important fix) */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,6 +13,7 @@ body {
     background-color: #f2e5d7;
 }
 
+/* TOP SECTION */
 .top {
     display: flex;
     justify-content: center;
@@ -22,15 +24,16 @@ body {
 }
 
 .top h1 {
-    margin: 0;
     font-size: 3rem;
 }
 
 .top p {
     letter-spacing: 0.2rem;
     padding-left: 1rem;
+    text-align: center;
 }
 
+/* MAIN */
 .main {
     display: flex;
     justify-content: center;
@@ -44,13 +47,19 @@ body {
     border-radius: 0.7rem;
     padding: 1.3rem 3rem;
     overflow-y: auto;
-    box-sizing: border-box;
+    transition: all 0.3s ease; /* smooth UI */
 }
 
-/* .quote-area::-webkit-scrollbar {
-    display: none;
-} */
+/* Optional: cleaner scrollbar */
+.main .quote-area::-webkit-scrollbar {
+    width: 6px;
+}
+.main .quote-area::-webkit-scrollbar-thumb {
+    background: #262322;
+    border-radius: 10px;
+}
 
+/* QUOTE */
 .main .quote-area #quote {
     font-size: 1.6rem;
     font-weight: 600;
@@ -58,10 +67,15 @@ body {
     text-transform: uppercase;
 }
 
+/* AUTHOR */
 .main .quote-area #author {
     font-size: 1.1rem;
+    margin-top: 1.2rem;
+    text-align: right;
+    font-style: italic;
 }
 
+/* BUTTON */
 .bottom {
     display: flex;
     justify-content: center;
@@ -78,8 +92,19 @@ body {
     font-size: 1.1rem;
     border: 0;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
+.bottom #btn:hover {
+    background-color: #000;
+    transform: scale(1.02);
+}
+
+.bottom #btn:active {
+    transform: scale(0.98);
+}
+
+/* FOOTER */
 .end {
     display: flex;
     justify-content: center;
@@ -92,10 +117,15 @@ body {
     padding-top: 0.5rem;
 }
 
-@media screen and (max-width: 720px){
+/* RESPONSIVE */
+@media screen and (max-width: 720px) {
     .main .quote-area {
         width: 95vw;
         height: 45vh;
+        padding: 1.2rem;
+    }
+
+    .bottom #btn {
+        width: 95vw;
     }
 }
-

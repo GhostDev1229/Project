@@ -1,13 +1,52 @@
 # Random Quote Generator
 
-## This Quote Generator Web Application is a platform designed to provide users with a diverse range of quotes for inspiration, motivation, and reflection. 
+A simple and interactive web application that generates random quotes to inspire, motivate, and encourage reflection.
 
-## With just a few clicks, you can browse through a vast collection of quotes from famous authors, thought leaders, and other inspiring figures.
+With just a single click, users can explore a wide collection of quotes from famous authors, thinkers, and influential personalities.
 
-## Technologies used :
-   1. HTML
-   2. CSS
-   3. JavaScript
+---
 
-## API used :
-   Quote Garden API - https://quote-garden.onrender.com/api/v3/quotes
+## 🌐 Live Demo
+👉 https://ghostdev1229.github.io/Project/random_quote/
+
+---
+
+## ✨ Features
+- Generate random inspirational quotes
+- Displays quote text along with author name
+- Clean and responsive user interface
+- Fast and lightweight application
+
+---
+
+## 🛠️ Technologies Used
+- **HTML** – Structure of the web page  
+- **CSS** – Styling and responsive design  
+- **JavaScript** – Functionality and API handling  
+
+---
+
+## 🌐 API Used
+**Quote Garden API**  
+https://quote-garden.onrender.com/api/v3/quotes
+
+---
+
+## 🚀 How to Use
+1. Open the live demo link  
+2. Click on **"Generate new quote"**  
+3. A new random quote will be displayed instantly  
+
+---
+
+## 📌 Project Purpose
+This project was built to practice:
+- API integration
+- Asynchronous JavaScript (`async/await`)
+- DOM manipulation
+- Frontend UI design
+
+---
+
+## 👨‍💻 Author
+**Jinay Shah**
